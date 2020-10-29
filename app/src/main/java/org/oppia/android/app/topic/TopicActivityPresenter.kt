@@ -7,10 +7,10 @@ import org.oppia.android.app.activity.ActivityScope
 import org.oppia.android.app.model.ProfileId
 import javax.inject.Inject
 
-const val TOPIC_FRAGMENT_TAG = "TopicFragment"
-const val PROFILE_ID_ARGUMENT_KEY = "profile_id"
-const val TOPIC_ID_ARGUMENT_KEY = "topic_id"
-const val STORY_ID_ARGUMENT_KEY = "story_id"
+const val TOPIC_FRAGMENT_ARGUMENT_KEY = "TopicFragment"
+const val PROFILE_ID_ARGUMENT_KEY = "TopicActivityPresenter.profile_id"
+const val TOPIC_ID_ARGUMENT_KEY = "TopicActivityPresenter.topic_id"
+const val STORY_ID_ARGUMENT_KEY = "TopicActivityPresenter.story_id"
 
 /** The presenter for [TopicActivity]. */
 @ActivityScope
@@ -36,7 +36,7 @@ class TopicActivityPresenter @Inject constructor(
       topicFragment.arguments = args
       activity.supportFragmentManager.beginTransaction().add(
         R.id.topic_fragment_placeholder,
-        topicFragment, TOPIC_FRAGMENT_TAG
+        topicFragment, TOPIC_FRAGMENT_ARGUMENT_KEY
       ).commitNow()
     }
   }
